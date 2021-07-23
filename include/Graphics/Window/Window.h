@@ -16,7 +16,7 @@ namespace XenoEngine::Graphics
   public:
     XEWindow(std::string windowTitle, uint32_t width, uint32_t height)
     :
-    m_windowTitle(windowTitle),
+    m_windowTitle(std::move(windowTitle)),
     m_windowWidth(width),
     m_windowHeight(height)
     {

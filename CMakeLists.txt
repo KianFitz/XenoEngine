@@ -10,9 +10,8 @@ if (UNIX)
 find_package(PkgConfig REQUIRED)
 
 pkg_search_module(GLFW REQUIRED glfw3)
-pkg_search_module(GLESv2 REQURIED GLESv2)
 
-endif (WIN32)
+endif (UNIX)
 
 include_directories(${GLFW_INCLUDE_DIRS})
 

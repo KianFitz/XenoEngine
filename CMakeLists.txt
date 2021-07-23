@@ -5,9 +5,14 @@ project(XenoEngine VERSION 0.01)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(OpenGL REQUIRED)
+
+if (UNIX)
 find_package(PkgConfig REQUIRED)
 
 pkg_search_module(GLFW REQUIRED glfw3)
+pkg_search_module(GLESv2 REQURIED GLESv2)
+
+endif (WIN32)
 
 include_directories(${GLFW_INCLUDE_DIRS})
 
@@ -23,6 +28,11 @@ set(GRAPHICS_SOURCES
 set(SOURCES
 	{GRAPHICS_SOURCES})
 
-add_library(XenoEngine src/Graphics/Window/Window.cpp)
+# add_executable(XenoEngine
+# src/main.cpp
+# src/Graphics/Window/Window.cpp)
+
+add_library(XenoEngine
+src/Graphics/Window/Window.cpp)
 
 target_link_libraries(XenoEngine ${ALL_LIBS})
